@@ -30,7 +30,7 @@
             padding-top: 20px;
             font-family: Arial, Helvetica, sans-serif;
             color: rgb(152, 147, 224);
-            transition: .3s;
+            color: white;
         }
         .html:hover{
             transition: .3s;
@@ -40,22 +40,126 @@
             text-align: center;
             color: white;
         }
+
+        /* 🔹 Estilos do Menu */
+        #menu {
+            display: none;
+        }
+        .botao{
+            position: fixed;
+            top: 50px;
+            left: 20px;
+            width: 30px;
+            height: 22px;
+            cursor: pointer;
+            z-index: 1002;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .botao span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #1a2041;
+            border-radius: 3px;
+            transition: 0.8s;
+        }
+        .comeco{
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #17054af6;
+            color: white;
+            transition: left 0.8s ease;
+            padding-top: 60px;
+            z-index: 1001;
+        }
+        .comeco ul, li{
+            color: white;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(232, 219, 219, 0.2);
+        }
+        .comeco ul,li:hover{
+            color: black;
+            transition: 0.2s;
+            background: rgba(12, 180, 231, 0.1);
+            cursor: pointer;
+        }
+        .comeco ul,li:active{
+            color: rgb(209, 209, 6);
+        }
+        .overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+        #menu:checked ~ .comeco{
+            left: 0;
+        }
+        #menu:checked ~ .overlay{
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #menu:checked + .botao span:nth-child(1){
+            transform: rotate(45deg) translateY(13px);
+            background: white;
+        }
+        #menu:checked + .botao span:nth-child(2){
+            opacity: 0;
+        }
+        #menu:checked + .botao span:nth-child(3){
+            transform: rotate(-45deg) translateY(-13px);
+            background: white;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        a:hover{
+            color: black;
+        }
+        a:active{
+            color: yellow;
+        }
    </style>
 </head>
 <body>
-    <h1>G.3</h1>
-    <h1 class="html">Boas-Vindas ao Curso de Front-End</h1>
+    
+    <h1 class="html">Boas-Vindas Com Gabriela Caputti</h1>
    
     <div class="img-video">
         <!-- 🔹 Vídeo do YouTube -->
-        <iframe width="1000" height="600" 
-          src="https://www.youtube.com/embed/z1-OrYcjJ4I?si=xMvoZra8O-dkSiv2" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
-          allowfullscreen>
-        </iframe>
+        <iframe width="1000" height="600" src="https://www.youtube.com/embed/3iXovDBax5w?si=nNlpmJ0Akf8v4TcB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
+
+    <!-- 🔹 Menu adicionado -->
+    <input type="checkbox" id="menu">
+    <label for="menu" class="botao">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <div class="comeco">
+        <ul> <p>Menu</p>
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="index03.html">HTML - CSS - VS CODE</a></li>
+            <li><a href="index04.html">Como Baixar o VS</a></li>
+            <li><a href="index05.html">Aula 01</a></li>
+            <li><a href="index05.html">Aula 02</a></li>
+            <li><a href="index02.html">O que aprendemos</a></li>
+            <li><a href="index02.html">Atividade</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
 </body>
 </html>
